@@ -1,5 +1,7 @@
 # FinTrust
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24045037.svg)](https://doi.org/10.5281/zenodo.24045037)
+
 Code and experiments for the paper **"FinTrust: Stateful Reliability Governance for Forecast Ensembles in Trading"**
 by Ainaan Raza, Abdullah Azmi and Faizane Raza (Department of Computer Science and Engineering, Integral University, Lucknow).
 
@@ -117,8 +119,9 @@ loop that feeds time-ordered forecasts and delayed outcomes through the governor
 
 ## Citation
 
-If you use this code, please cite the software release (see `CITATION.cff`; the DOI is on the Zenodo badge once
-the first release is archived) and the paper.
+If you use this code, please cite the software release and the paper (see `CITATION.cff`):
+
+> A. Raza, A. Azmi and F. Raza, *FinTrust: Stateful Reliability Governance for Forecast Ensembles in Trading (code and experiments)*, v1.0.0, Zenodo, 2026. doi:[10.5281/zenodo.24045037](https://doi.org/10.5281/zenodo.24045037)
 
 ## License
 

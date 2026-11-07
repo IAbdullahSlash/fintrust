@@ -13,6 +13,7 @@ authors:
     family-names: Raza
     affiliation: "Department of Computer Science and Engineering, Integral University, Lucknow, India"
 version: "1.0.0"
+doi: "10.5281/zenodo.24045037"
 date-released: "2026-11-07"
 license: MIT
 repository-code: "https://github.com/IAbdullahSlash/fintrust"
