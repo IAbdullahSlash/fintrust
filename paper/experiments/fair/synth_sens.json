@@ -1,0 +1,112 @@
+[
+ {
+  "window": 25,
+  "consecutive": 3,
+  "clean": {
+   "false_q": 22,
+   "detected": 0,
+   "delay_median": null,
+   "brier": 0.1868577634275532
+  },
+  "inversion": {
+   "false_q": 22,
+   "detected": 30,
+   "delay_median": 75.0,
+   "brier": 0.1907202562610565
+  },
+  "overconfident": {
+   "false_q": 22,
+   "detected": 30,
+   "delay_median": 350.0,
+   "brier": 0.18956118371817282
+  }
+ },
+ {
+  "window": 50,
+  "consecutive": 2,
+  "clean": {
+   "false_q": 10,
+   "detected": 0,
+   "delay_median": null,
+   "brier": 0.18676629911087606
+  },
+  "inversion": {
+   "false_q": 10,
+   "detected": 30,
+   "delay_median": 100.0,
+   "brier": 0.1905256305353775
+  },
+  "overconfident": {
+   "false_q": 10,
+   "detected": 30,
+   "delay_median": 375.0,
+   "brier": 0.18926177532437738
+  }
+ },
+ {
+  "window": 50,
+  "consecutive": 3,
+  "clean": {
+   "false_q": 0,
+   "detected": 0,
+   "delay_median": null,
+   "brier": 0.1867458908411798
+  },
+  "inversion": {
+   "false_q": 0,
+   "detected": 30,
+   "delay_median": 150.0,
+   "brier": 0.19050841654997838
+  },
+  "overconfident": {
+   "false_q": 0,
+   "detected": 23,
+   "delay_median": 550.0,
+   "brier": 0.18896537762331483
+  }
+ },
+ {
+  "window": 50,
+  "consecutive": 5,
+  "clean": {
+   "false_q": 0,
+   "detected": 0,
+   "delay_median": null,
+   "brier": 0.18677243058355025
+  },
+  "inversion": {
+   "false_q": 0,
+   "detected": 30,
+   "delay_median": 250.0,
+   "brier": 0.19066912310682263
+  },
+  "overconfident": {
+   "false_q": 0,
+   "detected": 5,
+   "delay_median": 950.0,
+   "brier": 0.18827009587550164
+  }
+ },
+ {
+  "window": 100,
+  "consecutive": 3,
+  "clean": {
+   "false_q": 0,
+   "detected": 0,
+   "delay_median": null,
+   "brier": 0.1867458908411798
+  },
+  "inversion": {
+   "false_q": 0,
+   "detected": 30,
+   "delay_median": 300.0,
+   "brier": 0.1905602638684095
+  },
+  "overconfident": {
+   "false_q": 0,
+   "detected": 15,
+   "delay_median": 1000.0,
+   "brier": 0.18861419036237978
+  }
+ }
+]

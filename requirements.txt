@@ -1,0 +1,9 @@
+# The governance core (prototype/) needs only the Python standard library (3.10+).
+# The experiments need:
+numpy>=2.0
+scipy>=1.13
+pandas>=2.2
+scikit-learn>=1.5
+matplotlib>=3.8
+# Optional, only to re-download the NSE series (data/download_nse.py):
+# yfinance>=0.2.50

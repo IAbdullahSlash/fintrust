@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite it as below."
+title: "FinTrust: Stateful Reliability Governance for Forecast Ensembles in Trading (code and experiments)"
+type: software
+authors:
+  - given-names: Ainaan
+    family-names: Raza
+    affiliation: "Department of Computer Science and Engineering, Integral University, Lucknow, India"
+  - given-names: Abdullah
+    family-names: Azmi
+    affiliation: "Department of Computer Science and Engineering, Integral University, Lucknow, India"
+  - given-names: Faizane
+    family-names: Raza
+    affiliation: "Department of Computer Science and Engineering, Integral University, Lucknow, India"
+version: "1.0.0"
+date-released: "2026-11-07"
+license: MIT
+repository-code: "https://github.com/IAbdullahSlash/fintrust"
+keywords:
+  - forecast combination
+  - model risk governance
+  - algorithmic trading
+  - fault detection
+  - quarantine
+  - limit order book
+abstract: >-
+  Governance core and experiment code for the FinTrust paper. FinTrust sits between several
+  probabilistic forecasters and a trading decision: it scores each forecaster on matured outcomes,
+  moves it through an explicit lifecycle (shadow, active, probation, quarantine) and records every
+  decision in a hash-chained audit log. The repository regenerates every table and figure of the paper
+  from saved model outputs, and the forecasts themselves from public data.

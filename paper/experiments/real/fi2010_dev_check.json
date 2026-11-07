@@ -1,0 +1,17 @@
+{
+ "default": {
+  "coverage_after_3000": 0.5450547737798361,
+  "quarantines": 3,
+  "transitions": 6
+ },
+ "W50_autoclear": {
+  "coverage_after_3000": 1.0,
+  "quarantines": 34,
+  "transitions": 86
+ },
+ "W500_autoclear": {
+  "coverage_after_3000": 0.9832004809405058,
+  "quarantines": 0,
+  "transitions": 3
+ }
+}

@@ -1,0 +1,682 @@
+{
+ "clean": {
+  "per_half": {
+   "brier": 0.23457037503554354,
+   "detect_days": [],
+   "healthy_q": 0
+  },
+  "pool50_half": {
+   "brier": 0.23457037503554354,
+   "detect_days": [],
+   "healthy_q": 0
+  },
+  "pool300_half": {
+   "brier": 0.23457037503554354,
+   "detect_days": [],
+   "healthy_q": 0
+  },
+  "per_clim": {
+   "brier": 0.2345316818315959,
+   "detect_days": [],
+   "healthy_q": 0
+  },
+  "pool50_clim": {
+   "brier": 0.23457037503554354,
+   "detect_days": [],
+   "healthy_q": 0
+  },
+  "pool300_clim": {
+   "brier": 0.23469408756645238,
+   "detect_days": [],
+   "healthy_q": 0
+  }
+ },
+ "inversion:RV": {
+  "per_half": {
+   "brier": 0.23491555520505125,
+   "detect_days": [
+    null,
+    null,
+    null,
+    null,
+    614,
+    null
+   ],
+   "healthy_q": 0
+  },
+  "pool50_half": {
+   "brier": 0.23490280473056419,
+   "detect_days": [
+    518
+   ],
+   "healthy_q": 0
+  },
+  "pool300_half": {
+   "brier": 0.2349155542063975,
+   "detect_days": [
+    null
+   ],
+   "healthy_q": 0
+  },
+  "per_clim": {
+   "brier": 0.23484229960786143,
+   "detect_days": [
+    null,
+    null,
+    null,
+    1431,
+    614,
+    null
+   ],
+   "healthy_q": 0
+  },
+  "pool50_clim": {
+   "brier": 0.23490127759660748,
+   "detect_days": [
+    126
+   ],
+   "healthy_q": 0
+  },
+  "pool300_clim": {
+   "brier": 0.2349011072294075,
+   "detect_days": [
+    615
+   ],
+   "healthy_q": 0
+  }
+ },
+ "inversion:RANGE": {
+  "per_half": {
+   "brier": 0.23493750100644709,
+   "detect_days": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "healthy_q": 0
+  },
+  "pool50_half": {
+   "brier": 0.23491504624805787,
+   "detect_days": [
+    126
+   ],
+   "healthy_q": 0
+  },
+  "pool300_half": {
+   "brier": 0.23493750100644709,
+   "detect_days": [
+    null
+   ],
+   "healthy_q": 0
+  },
+  "per_clim": {
+   "brier": 0.2348734120697528,
+   "detect_days": [
+    null,
+    null,
+    null,
+    null,
+    614,
+    null
+   ],
+   "healthy_q": 0
+  },
+  "pool50_clim": {
+   "brier": 0.23491504624805787,
+   "detect_days": [
+    126
+   ],
+   "healthy_q": 0
+  },
+  "pool300_clim": {
+   "brier": 0.23482801583270063,
+   "detect_days": [
+    null
+   ],
+   "healthy_q": 0
+  }
+ },
+ "inversion:GBT": {
+  "per_half": {
+   "brier": 0.23556447514025655,
+   "detect_days": [
+    null,
+    null,
+    null,
+    837,
+    614,
+    null
+   ],
+   "healthy_q": 0
+  },
+  "pool50_half": {
+   "brier": 0.23555602826804822,
+   "detect_days": [
+    467
+   ],
+   "healthy_q": 0
+  },
+  "pool300_half": {
+   "brier": 0.23556447550408696,
+   "detect_days": [
+    null
+   ],
+   "healthy_q": 0
+  },
+  "per_clim": {
+   "brier": 0.23564827768726934,
+   "detect_days": [
+    256,
+    539,
+    null,
+    320,
+    466,
+    null
+   ],
+   "healthy_q": 0
+  },
+  "pool50_clim": {
+   "brier": 0.23555056808218586,
+   "detect_days": [
+    126
+   ],
+   "healthy_q": 0
+  },
+  "pool300_clim": {
+   "brier": 0.23534939137753186,
+   "detect_days": [
+    null
+   ],
+   "healthy_q": 0
+  }
+ },
+ "inversion:VIX": {
+  "per_half": {
+   "brier": 0.23646214700402116,
+   "detect_days": [
+    null,
+    null,
+    null,
+    245,
+    614,
+    null
+   ],
+   "healthy_q": 0
+  },
+  "pool50_half": {
+   "brier": 0.23644863210803566,
+   "detect_days": [
+    467
+   ],
+   "healthy_q": 0
+  },
+  "pool300_half": {
+   "brier": 0.23645859514424764,
+   "detect_days": [
+    1357
+   ],
+   "healthy_q": 0
+  },
+  "per_clim": {
+   "brier": 0.2365494424941729,
+   "detect_days": [
+    1588,
+    null,
+    null,
+    245,
+    614,
+    null
+   ],
+   "healthy_q": 0
+  },
+  "pool50_clim": {
+   "brier": 0.2364409795788869,
+   "detect_days": [
+    126
+   ],
+   "healthy_q": 0
+  },
+  "pool300_clim": {
+   "brier": 0.2370725149775732,
+   "detect_days": [
+    1285
+   ],
+   "healthy_q": 0
+  }
+ },
+ "stuck:RV": {
+  "per_half": {
+   "brier": 0.2348099715279229,
+   "detect_days": [
+    256,
+    245,
+    173,
+    245,
+    245,
+    173
+   ],
+   "healthy_q": 0
+  },
+  "pool50_half": {
+   "brier": 0.23480836093702875,
+   "detect_days": [
+    39
+   ],
+   "healthy_q": 0
+  },
+  "pool300_half": {
+   "brier": 0.23480997152792296,
+   "detect_days": [
+    248
+   ],
+   "healthy_q": 0
+  },
+  "per_clim": {
+   "brier": 0.23473401778869485,
+   "detect_days": [
+    256,
+    245,
+    173,
+    98,
+    245,
+    null
+   ],
+   "healthy_q": 0
+  },
+  "pool50_clim": {
+   "brier": 0.23480836093702875,
+   "detect_days": [
+    39
+   ],
+   "healthy_q": 0
+  },
+  "pool300_clim": {
+   "brier": 0.23479893795479684,
+   "detect_days": [
+    248
+   ],
+   "healthy_q": 0
+  }
+ },
+ "stuck:RANGE": {
+  "per_half": {
+   "brier": 0.23482478600725848,
+   "detect_days": [
+    256,
+    245,
+    173,
+    245,
+    245,
+    173
+   ],
+   "healthy_q": 0
+  },
+  "pool50_half": {
+   "brier": 0.23482199057564437,
+   "detect_days": [
+    39
+   ],
+   "healthy_q": 0
+  },
+  "pool300_half": {
+   "brier": 0.2348247860072586,
+   "detect_days": [
+    248
+   ],
+   "healthy_q": 0
+  },
+  "per_clim": {
+   "brier": 0.2348548879631513,
+   "detect_days": [
+    256,
+    null,
+    null,
+    245,
+    245,
+    null
+   ],
+   "healthy_q": 0
+  },
+  "pool50_clim": {
+   "brier": 0.23482199057564437,
+   "detect_days": [
+    39
+   ],
+   "healthy_q": 0
+  },
+  "pool300_clim": {
+   "brier": 0.23482801583270063,
+   "detect_days": [
+    null
+   ],
+   "healthy_q": 0
+  }
+ },
+ "stuck:GBT": {
+  "per_half": {
+   "brier": 0.23545958906438252,
+   "detect_days": [
+    256,
+    245,
+    173,
+    245,
+    245,
+    173
+   ],
+   "healthy_q": 0
+  },
+  "pool50_half": {
+   "brier": 0.23545756994977052,
+   "detect_days": [
+    39
+   ],
+   "healthy_q": 0
+  },
+  "pool300_half": {
+   "brier": 0.23545958906438258,
+   "detect_days": [
+    248
+   ],
+   "healthy_q": 0
+  },
+  "per_clim": {
+   "brier": 0.23553742837934652,
+   "detect_days": [
+    256,
+    245,
+    173,
+    173,
+    245,
+    173
+   ],
+   "healthy_q": 0
+  },
+  "pool50_clim": {
+   "brier": 0.23545756994977052,
+   "detect_days": [
+    39
+   ],
+   "healthy_q": 0
+  },
+  "pool300_clim": {
+   "brier": 0.23534939137753186,
+   "detect_days": [
+    null
+   ],
+   "healthy_q": 0
+  }
+ },
+ "stuck:VIX": {
+  "per_half": {
+   "brier": 0.23632647357662015,
+   "detect_days": [
+    256,
+    245,
+    173,
+    245,
+    245,
+    173
+   ],
+   "healthy_q": 0
+  },
+  "pool50_half": {
+   "brier": 0.23632045265160562,
+   "detect_days": [
+    39
+   ],
+   "healthy_q": 0
+  },
+  "pool300_half": {
+   "brier": 0.2363264735766203,
+   "detect_days": [
+    248
+   ],
+   "healthy_q": 0
+  },
+  "per_clim": {
+   "brier": 0.23643969486364522,
+   "detect_days": [
+    256,
+    245,
+    173,
+    98,
+    173,
+    173
+   ],
+   "healthy_q": 0
+  },
+  "pool50_clim": {
+   "brier": 0.23632045265160562,
+   "detect_days": [
+    39
+   ],
+   "healthy_q": 0
+  },
+  "pool300_clim": {
+   "brier": 0.2369880900375643,
+   "detect_days": [
+    248
+   ],
+   "healthy_q": 0
+  }
+ },
+ "overconfident:RV": {
+  "per_half": {
+   "brier": 0.23493616030407774,
+   "detect_days": [
+    476,
+    466,
+    null,
+    98,
+    466,
+    1056
+   ],
+   "healthy_q": 0
+  },
+  "pool50_half": {
+   "brier": 0.23492840790569106,
+   "detect_days": [
+    39
+   ],
+   "healthy_q": 0
+  },
+  "pool300_half": {
+   "brier": 0.2349394656201623,
+   "detect_days": [
+    542
+   ],
+   "healthy_q": 0
+  },
+  "per_clim": {
+   "brier": 0.234872955798685,
+   "detect_days": [
+    476,
+    245,
+    null,
+    98,
+    466,
+    null
+   ],
+   "healthy_q": 0
+  },
+  "pool50_clim": {
+   "brier": 0.23493509126056938,
+   "detect_days": [
+    39
+   ],
+   "healthy_q": 0
+  },
+  "pool300_clim": {
+   "brier": 0.23495525302126136,
+   "detect_days": [
+    542
+   ],
+   "healthy_q": 0
+  }
+ },
+ "overconfident:RANGE": {
+  "per_half": {
+   "brier": 0.23484666574756516,
+   "detect_days": [
+    476,
+    320,
+    null,
+    173,
+    466,
+    null
+   ],
+   "healthy_q": 0
+  },
+  "pool50_half": {
+   "brier": 0.2349861931028674,
+   "detect_days": [
+    39
+   ],
+   "healthy_q": 0
+  },
+  "pool300_half": {
+   "brier": 0.234995847417992,
+   "detect_days": [
+    542
+   ],
+   "healthy_q": 0
+  },
+  "per_clim": {
+   "brier": 0.23474112117319734,
+   "detect_days": [
+    181,
+    null,
+    null,
+    98,
+    245,
+    null
+   ],
+   "healthy_q": 0
+  },
+  "pool50_clim": {
+   "brier": 0.2349861931028674,
+   "detect_days": [
+    39
+   ],
+   "healthy_q": 0
+  },
+  "pool300_clim": {
+   "brier": 0.23482801583270063,
+   "detect_days": [
+    null
+   ],
+   "healthy_q": 0
+  }
+ },
+ "overconfident:GBT": {
+  "per_half": {
+   "brier": 0.23554116235714503,
+   "detect_days": [
+    1067,
+    320,
+    689,
+    392,
+    466,
+    1431
+   ],
+   "healthy_q": 0
+  },
+  "pool50_half": {
+   "brier": 0.23554154850388895,
+   "detect_days": [
+    164
+   ],
+   "healthy_q": 0
+  },
+  "pool300_half": {
+   "brier": 0.2355411694974265,
+   "detect_days": [
+    983
+   ],
+   "healthy_q": 0
+  },
+  "per_clim": {
+   "brier": 0.23562233570259608,
+   "detect_days": [
+    1067,
+    320,
+    689,
+    392,
+    466,
+    1431
+   ],
+   "healthy_q": 0
+  },
+  "pool50_clim": {
+   "brier": 0.23554154850388895,
+   "detect_days": [
+    164
+   ],
+   "healthy_q": 0
+  },
+  "pool300_clim": {
+   "brier": 0.23534939137753186,
+   "detect_days": [
+    null
+   ],
+   "healthy_q": 0
+  }
+ },
+ "overconfident:VIX": {
+  "per_half": {
+   "brier": 0.23638938928976153,
+   "detect_days": [
+    476,
+    null,
+    null,
+    245,
+    466,
+    null
+   ],
+   "healthy_q": 0
+  },
+  "pool50_half": {
+   "brier": 0.23639298888231464,
+   "detect_days": [
+    116
+   ],
+   "healthy_q": 0
+  },
+  "pool300_half": {
+   "brier": 0.2363929588666113,
+   "detect_days": [
+    542
+   ],
+   "healthy_q": 0
+  },
+  "per_clim": {
+   "brier": 0.236516372856585,
+   "detect_days": [
+    476,
+    392,
+    1284,
+    245,
+    466,
+    1056
+   ],
+   "healthy_q": 0
+  },
+  "pool50_clim": {
+   "brier": 0.23623626153798913,
+   "detect_days": [
+    39
+   ],
+   "healthy_q": 0
+  },
+  "pool300_clim": {
+   "brier": 0.23715294601000675,
+   "detect_days": [
+    542
+   ],
+   "healthy_q": 0
+  }
+ }
+}

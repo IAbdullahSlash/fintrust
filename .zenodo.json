@@ -1,0 +1,15 @@
+{
+  "title": "FinTrust: Stateful Reliability Governance for Forecast Ensembles in Trading (code and experiments)",
+  "upload_type": "software",
+  "description": "<p>Governance core and experiment code for the FinTrust paper. FinTrust sits between several probabilistic forecasters and a trading decision: it scores each forecaster on matured outcomes, moves it through an explicit lifecycle (shadow, active, probation, quarantine) and records every decision in a hash-chained audit log.</p><p>The release regenerates every table and figure of the paper from saved model outputs (FI-2010, Bitstamp BTC/USD and NSE daily forecasts), and the forecasts themselves from public data. Raw market data are not redistributed; download scripts are included. No trading-profit claim is made.</p>",
+  "creators": [
+    {"name": "Raza, Ainaan", "affiliation": "Integral University, Lucknow, India"},
+    {"name": "Azmi, Abdullah", "affiliation": "Integral University, Lucknow, India"},
+    {"name": "Raza, Faizane", "affiliation": "Integral University, Lucknow, India"}
+  ],
+  "license": "MIT",
+  "access_right": "open",
+  "keywords": ["forecast combination", "model risk governance", "algorithmic trading", "fault detection", "quarantine", "limit order book"],
+  "version": "1.0.0",
+  "language": "eng"
+}

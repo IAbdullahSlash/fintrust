@@ -1,0 +1,22 @@
+test_audit_mutation (test_fintrust.Tests.test_audit_mutation) ... ok
+test_audit_truncation (test_fintrust.Tests.test_audit_truncation) ... ok
+test_clock_regression (test_fintrust.Tests.test_clock_regression) ... ok
+test_delayed_label (test_fintrust.Tests.test_delayed_label) ... ok
+test_duplicate_label (test_fintrust.Tests.test_duplicate_label) ... ok
+test_expired_forecast (test_fintrust.Tests.test_expired_forecast) ... ok
+test_halt (test_fintrust.Tests.test_halt) ... ok
+test_infeasible_caps (test_fintrust.Tests.test_infeasible_caps) ... ok
+test_invalid_probability (test_fintrust.Tests.test_invalid_probability) ... ok
+test_policy_mutation (test_fintrust.Tests.test_policy_mutation) ... ok
+test_probation_cap (test_fintrust.Tests.test_probation_cap) ... ok
+test_quarantine (test_fintrust.Tests.test_quarantine) ... ok
+test_recovery_requires_clearance (test_fintrust.Tests.test_recovery_requires_clearance) ... ok
+test_shadow_promotion (test_fintrust.Tests.test_shadow_promotion) ... ok
+test_stale_policy (test_fintrust.Tests.test_stale_policy) ... ok
+test_statistical_quarantine_manual_mode (test_fintrust.Tests.test_statistical_quarantine_manual_mode) ... ok
+test_statistical_quarantine_self_clears (test_fintrust.Tests.test_statistical_quarantine_self_clears) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.008s
+
+OK
