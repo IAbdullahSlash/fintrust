@@ -173,7 +173,7 @@ class StubBackend:
         return out
 
 class HFBackend:
-    def __init__(self, model_id, revision=None, dtype='float16', max_batch=16):
+    def __init__(self, model_id, revision=None, dtype='float16', max_batch=16, quant=None):
         import torch
         from transformers import AutoTokenizer, AutoModelForCausalLM
         try:
@@ -183,11 +183,20 @@ class HFBackend:
         self.model_id, self.revision, self.max_batch = model_id, revision or 'unknown', max_batch
         self.tok = AutoTokenizer.from_pretrained(model_id, revision=revision); self.tok.padding_side = 'left'
         if self.tok.pad_token is None: self.tok.pad_token = self.tok.eos_token
-        self.model = AutoModelForCausalLM.from_pretrained(model_id, revision=revision, torch_dtype=getattr(torch, dtype), device_map='auto').eval()
+        kw = {}
+        if quant == '8bit':          # LLM.int8 weights (bitsandbytes), for models too large for fp16 on 2 x T4
+            from transformers import BitsAndBytesConfig
+            kw['quantization_config'] = BitsAndBytesConfig(load_in_8bit=True)
+        self.model = AutoModelForCausalLM.from_pretrained(model_id, revision=revision, torch_dtype=getattr(torch, dtype), device_map='auto', **kw).eval()
+        self.quant = quant or 'none'
         self.torch = torch
     def generate(self, batch):
-        texts = [self.tok.apply_chat_template([{'role': 'system', 'content': r['system']}, {'role': 'user', 'content': r['user']}],
-                                              tokenize=False, add_generation_prompt=True) for r in batch]
+        def chat(r):
+            try: return self.tok.apply_chat_template([{'role': 'system', 'content': r['system']}, {'role': 'user', 'content': r['user']}],
+                                                      tokenize=False, add_generation_prompt=True)
+            except Exception:    # template without a system role: put the instruction at the top of the user turn
+                return self.tok.apply_chat_template([{'role': 'user', 'content': r['system'] + '\n\n' + r['user']}], tokenize=False, add_generation_prompt=True)
+        texts = [chat(r) for r in batch]
         enc = self.tok(texts, return_tensors='pt', padding=True, add_special_tokens=False).to(self.model.device)
         with self.torch.no_grad():
             g = self.model.generate(**enc, max_new_tokens=max(r['max_new_tokens'] for r in batch), do_sample=False,

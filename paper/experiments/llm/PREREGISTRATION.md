@@ -103,10 +103,12 @@ of reasoning before the probability (`user_prompt_feat`, `SYSTEM_FEAT`). Conditi
 `feat_clean` prompts in 2025. Everything else (window, onset, thresholds, combiners, hyper-parameters, outcomes) as in
 experiment 1. Replay: `run_llm.py --prefix feat_` -> `llm_results_feat.json`.
 
-**Experiment 3: different model family, experiment 1 prompts.** Qwen/Qwen2.5-7B-Instruct (ungated; revision recorded),
-conditions `clean`, `news_alarm`, `news_calm`, `persona`, plus the leakage probe (`clean_pre`, `named`, `named_pre`).
-Its knowledge cutoff is not documented (released September 2024), so its 2024 results may be exposed to look-ahead; the
-leakage probe and anonymised prompts are the only controls and this is stated as a limitation. F4 swap = the existing
-Llama-3.2-1B outputs. Replay: `run_llm.py --main qwen25_7b --swap llama32_1b --out llm_results_qwen.json`.
+**Experiment 3: different model family, experiment 1 prompts.** microsoft/Phi-3-medium-4k-instruct (14B, MIT licence,
+ungated; model card: "static model trained on an offline dataset with cutoff date October 2023"; revision recorded), loaded
+with 8-bit weights (bitsandbytes LLM.int8) because fp16 does not fit on 2 x T4. Conditions `clean`, `news_alarm`,
+`news_calm`, `persona`, plus the leakage probe (`clean_pre`, `named`, `named_pre`). The October 2023 cutoff precedes the
+2024-2025 window, so the look-ahead control is the same as for Llama 3.1. F4 swap = the existing Llama-3.2-1B outputs.
+Replay: `run_llm.py --main phi3_medium --swap llama32_1b --out llm_results_phi3.json`.
+(Changed the same day, before anything was run: Qwen2.5-7B was first listed here and replaced because its cutoff is undocumented.)
 
 No further model or prompt variants will be added to this paper's LLM study after these results are seen.
