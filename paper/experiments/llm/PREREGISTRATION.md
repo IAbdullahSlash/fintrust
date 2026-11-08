@@ -87,3 +87,26 @@ resumable client. Zoho QuickML: about 1,500 calls, within the monthly free token
 
 - 2026-11-08: the Groq (gpt-oss-120b) swap variant is dropped because the free tier would need about a week of
   daily runs. F4 uses Llama-3.2-1B-Instruct; the Zoho variant stays optional. No LLM output had been analysed.
+
+## Addendum, 2026-11-08: experiments 2 and 3 (written after experiment 1's results, before 2 and 3 were run)
+
+Experiment 1 (above) found no skill: Llama 3.1 8B Brier 0.327 in 2025, never admitted by FinTrust, so detection of
+LLM-specific faults on a useful LLM could not be tested. Both follow-ups below are reported in full whatever they show;
+experiment 1 is reported unchanged alongside them.
+
+**Experiment 2: same model, better input (conditions `feat_*`).** Llama-3.1-8B-Instruct (same revision) receives the
+signals the conventional agents use (today's and 5-day |return| and range relative to their 20-day means, the 20-day mean,
+5-day return, volatility-index level, 5-day change and its ratio to realised volatility), the training-period base rate
+(40% of days, 2016-2023 labels) and a one-line note on which way the signals usually point, and writes one or two sentences
+of reasoning before the probability (`user_prompt_feat`, `SYSTEM_FEAT`). Conditions: `feat_clean` (2024-2025),
+`feat_news_alarm`, `feat_news_calm`, `feat_persona` (2025, same headlines and seed); F4 swap = Llama-3.2-1B-Instruct on
+`feat_clean` prompts in 2025. Everything else (window, onset, thresholds, combiners, hyper-parameters, outcomes) as in
+experiment 1. Replay: `run_llm.py --prefix feat_` -> `llm_results_feat.json`.
+
+**Experiment 3: different model family, experiment 1 prompts.** Qwen/Qwen2.5-7B-Instruct (ungated; revision recorded),
+conditions `clean`, `news_alarm`, `news_calm`, `persona`, plus the leakage probe (`clean_pre`, `named`, `named_pre`).
+Its knowledge cutoff is not documented (released September 2024), so its 2024 results may be exposed to look-ahead; the
+leakage probe and anonymised prompts are the only controls and this is stated as a limitation. F4 swap = the existing
+Llama-3.2-1B outputs. Replay: `run_llm.py --main qwen25_7b --swap llama32_1b --out llm_results_qwen.json`.
+
+No further model or prompt variants will be added to this paper's LLM study after these results are seen.

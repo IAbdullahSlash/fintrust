@@ -48,8 +48,8 @@ def main(a):
     o = load_outputs(a.outputs); res = dict(protocol='PREREGISTRATION.md', hyper=best, main=a.main, available={}, agents={}, scenarios={})
     res['available'] = {f'{t}:{c}': int(n) for (t, c), n in o.groupby(['tag', 'condition']).size().items()}
     res['parse_fail'] = {f'{t}:{c}': float(1 - g['parse_ok'].mean()) for (t, c), g in o.groupby(['tag', 'condition'])}
-    main_clean = series(o, a.main, 'clean')
-    if not main_clean: sys.exit(f'no outputs for {a.main}:clean in {a.outputs}')
+    main_clean = series(o, a.main, a.prefix + 'clean')
+    if not main_clean: sys.exit(f'no outputs for {a.main}:{a.prefix}clean in {a.outputs}')
 
     # LLM column for 2024 is always the clean main model; from ONSET it is replaced according to the scenario.
     def llm_col(asset, idx, late):
@@ -58,10 +58,10 @@ def main(a):
         return base.values
     scen = {'clean': None}
     for c, key in [('news_alarm', 'F1_news_alarm'), ('news_calm', 'F2_news_calm'), ('persona', 'F3_persona')]:
-        s = series(o, a.main, c)
+        s = series(o, a.main, a.prefix + c)
         if s: scen[key] = s
     for t in a.swap:
-        s = series(o, t, 'clean')
+        s = series(o, t, a.prefix + 'clean')
         if s: scen[f'F4_swap_{t}'] = s
     for k in ['inversion', 'stuck', 'overconfident']: scen[f'OUT_{k}'] = k
 
@@ -118,11 +118,12 @@ def main(a):
                           gap_post=(b['named'] - b['clean']) if b['named'] and b['clean'] else None)
 
     # hallucinated-reasoning diagnostic on the 'rationale' condition
-    rq = Path(a.requests) / 'rationale.jsonl'; rat = o[(o.tag == a.main) & (o.condition == 'rationale')]
+    rc = 'rationale' if not a.prefix else a.prefix + 'clean'
+    rq = Path(a.requests) / f'{rc}.jsonl'; rat = o[(o.tag == a.main) & (o.condition == rc)]
     if len(rat) and rq.exists():
         prompts = {json.loads(l)['id']: json.loads(l)['user'] for l in open(rq)}; cited = hall = rows_h = 0
         for _, r in rat.iterrows():
-            pid = f"rationale|{r.asset}|{r.date:%Y-%m-%d}"; reason = re.split(r'Probability', str(r.raw), flags=re.I)[0]
+            pid = f"{rc}|{r.asset}|{r.date:%Y-%m-%d}"; reason = re.split(r'Probability', str(r.raw), flags=re.I)[0]
             nums = [float(x) for x in re.findall(r'(?<![\d.])\d+(?:\.\d+)?', reason)]
             nums = [x for x in nums if not (x.is_integer() and x <= 20)]      # day counts / window lengths are structural
             pnums = [float(x) for x in re.findall(r'\d+(?:\.\d+)?', prompts.get(pid, ''))]
@@ -136,5 +137,7 @@ if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     ap.add_argument('--outputs', default=str(HERE / 'outputs')); ap.add_argument('--requests', default=str(HERE / 'requests'))
     ap.add_argument('--main', default='llama31_8b'); ap.add_argument('--swap', nargs='*', default=['llama32_1b', 'groq_gptoss120b', 'zoho_qwen'])
-    ap.add_argument('--out', default=str(HERE / 'llm_results.json'))
-    main(ap.parse_args())
+    ap.add_argument('--prefix', default='', help="'' = experiment 1 prompts, 'feat_' = experiment 2 (signals + reasoning)")
+    ap.add_argument('--out')
+    a = ap.parse_args(); a.out = a.out or str(HERE / ('llm_results.json' if not a.prefix else f'llm_results_{a.prefix.rstrip("_")}.json'))
+    main(a)

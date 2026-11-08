@@ -7,6 +7,7 @@ The protocol is fixed in [`PREREGISTRATION.md`](PREREGISTRATION.md) and was writ
 | `llm_forecaster.py` | builds the prompts (`build`) and runs them through a backend (`run`); resumable |
 | `api_backends.py` | Groq and Zoho Catalyst free-tier clients (standard library only) |
 | `kaggle_llm_forecaster.ipynb` | the self-hosted run on Kaggle's free T4 GPUs (Llama 3.1 8B + Llama 3.2 1B) |
+| `kaggle_llm_experiments2_3.ipynb` | follow-up run (addendum): experiment 2 (signals + reasoning) and experiment 3 (Qwen2.5-7B) |
 | `run_llm.py` | adds the LLM agent to the NSE agents, builds every fault scenario, runs the combiners, writes `llm_results.json` |
 | `outputs/` | model answers, one JSONL per model and condition (committed, like the other forecast files) |
 | `requests/` | prompts built from the price file (not committed: derived from Yahoo Finance data) |
@@ -41,7 +42,9 @@ The Zoho client has not been tested against a live endpoint yet; check the first
 ## 3. Results
 
 ```bash
-python run_llm.py          # reads outputs/, writes llm_results.json
+python run_llm.py                                                    # experiment 1 -> llm_results.json
+python run_llm.py --prefix feat_                                     # experiment 2 -> llm_results_feat.json
+python run_llm.py --main qwen25_7b --swap llama32_1b --out llm_results_qwen.json   # experiment 3
 ```
 
 Scenarios without the outputs they need are skipped and listed in the result file.

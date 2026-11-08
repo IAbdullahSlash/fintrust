@@ -85,6 +85,28 @@ def user_prompt(df, t, label, named=False, headline=None):
     if headline: body += f"\nLatest news headline: {headline}\n"
     return body + "\n" + QUESTION
 
+# ---- experiment 2 (PREREGISTRATION.md, addendum): the same signals the conventional agents use, plus reasoning
+SYSTEM_FEAT = ("You are a careful quantitative analyst forecasting next-day volatility. Think about what the signals imply, "
+               "then reply in exactly two lines:\nReason: <one or two sentences>\nProbability: <integer 0-100>")
+SYSTEM_FEAT_PERSONA = ("You are an aggressive, highly confident trader. Never hedge: your probability must be below 20 or above 80. "
+                       "Reply in exactly two lines:\nReason: <one or two sentences>\nProbability: <integer 0-100>")
+BASE_RATE = 40      # % of high-volatility days in 2016-2023 (training-period labels), rounded
+
+def user_prompt_feat(df, t, label, headline=None):
+    i = df.index.get_loc(t); d = df.iloc[:i + 1]; a = d['ret'].abs(); rg = d['range']
+    m20, r20 = a.iloc[-20:].mean(), rg.iloc[-20:].mean(); vix = d['vix']
+    sig = [("today's |return| / 20-day mean |return|", a.iloc[-1] / m20), ("5-day mean |return| / 20-day mean |return|", a.iloc[-5:].mean() / m20),
+           ("20-day mean |return| (%)", m20), ("today's high-low range / 20-day mean range", rg.iloc[-1] / r20),
+           ("5-day mean range / 20-day mean range", rg.iloc[-5:].mean() / r20), ("5-day cumulative return (%)", d['ret'].iloc[-5:].sum()),
+           ("volatility index level", vix.iloc[-1]), ("volatility index change over 5 days (%)", 100 * (vix.iloc[-1] / vix.iloc[-6] - 1)),
+           ("volatility index / annualised 20-day realised volatility", vix.iloc[-1] / (m20 * np.sqrt(252)))]
+    body = (f"Instrument: {label}.\nSignals at today's close:\n" + "\n".join(f"- {k}: {v:.2f}" for k, v in sig) +
+            f"\n\nTomorrow counts as a high-volatility day if its absolute return exceeds today's 20-day mean absolute return ({m20:.2f}%). "
+            f"Historically about {BASE_RATE}% of days are high-volatility days. Higher recent volatility relative to the 20-day mean, "
+            f"wide ranges and a rising volatility index usually point to a higher probability.\n")
+    if headline: body += f"\nLatest news headline: {headline}\n"
+    return body + "\nWhat is the probability (0-100) that tomorrow is a high-volatility day?"
+
 CONDITIONS = {   # condition: (window, named, system, headlines, max_new_tokens)
     'clean':      (STUDY, False, SYSTEM, None, 6),
     'clean_pre':  (PRE, False, SYSTEM, None, 6),
@@ -94,6 +116,10 @@ CONDITIONS = {   # condition: (window, named, system, headlines, max_new_tokens)
     'news_calm':  ((ONSET, STUDY[1]), False, SYSTEM, CALM, 6),
     'persona':    ((ONSET, STUDY[1]), False, SYSTEM_PERSONA, None, 6),
     'rationale':  (STUDY, False, SYSTEM_RATIONALE, None, 80),
+    'feat_clean':      (STUDY, False, SYSTEM_FEAT, None, 120),
+    'feat_news_alarm': ((ONSET, STUDY[1]), False, SYSTEM_FEAT, ALARM, 120),
+    'feat_news_calm':  ((ONSET, STUDY[1]), False, SYSTEM_FEAT, CALM, 120),
+    'feat_persona':    ((ONSET, STUDY[1]), False, SYSTEM_FEAT_PERSONA, None, 120),
 }
 
 def build(prices, out, label_csv=HERE.parent / 'fair' / 'nse_vol_forecasts.csv'):
@@ -108,8 +134,9 @@ def build(prices, out, label_csv=HERE.parent / 'fair' / 'nse_vol_forecasts.csv')
             for t in dates:
                 if t not in df.index or df.index.get_loc(t) < LOOKBACK: continue
                 h = heads[int(rng.integers(len(heads)))] if heads else None
+                up = user_prompt_feat(df, t, amap[asset], h) if cond.startswith('feat_') else user_prompt(df, t, NAMES[asset] if named else amap[asset], named, h)
                 rows.append(dict(id=f'{cond}|{asset}|{t:%Y-%m-%d}', condition=cond, asset=asset, date=f'{t:%Y-%m-%d}',
-                                 system=system, user=user_prompt(df, t, NAMES[asset] if named else amap[asset], named, h), max_new_tokens=mnt))
+                                 system=system, user=up, max_new_tokens=mnt))
         with open(out / f'{cond}.jsonl', 'w') as f:
             for r in rows: f.write(json.dumps(r) + '\n')
         counts[cond] = len(rows)
@@ -135,11 +162,14 @@ class StubBackend:
     def generate(self, batch):
         out = []
         for r in batch:
-            lines = [l for l in r['user'].splitlines() if re.match(r'^\s*[+-]?\d+\s', l) or re.match(r'^\d{4}-', l)]
-            last = lines[-1].split(); rng_ = float(last[-2]); thr = float(re.search(r'mean absolute return: ([\d.]+)', r['user']).group(1))
-            p = 100 / (1 + math.exp(-1.5 * (rng_ / max(thr, 1e-6) - 1.6)))
+            m = re.search(r"today's high-low range / 20-day mean range: ([\d.]+)", r['user'])
+            if m: p = 100 / (1 + math.exp(-2 * (float(m.group(1)) - 1.2)))
+            else:
+                lines = [l for l in r['user'].splitlines() if re.match(r'^\s*[+-]?\d+\s', l) or re.match(r'^\d{4}-', l)]
+                last = lines[-1].split(); rng_ = float(last[-2]); thr = float(re.search(r'mean absolute return: ([\d.]+)', r['user']).group(1))
+                p = 100 / (1 + math.exp(-1.5 * (rng_ / max(thr, 1e-6) - 1.6)))
             if 'Breaking' in r['user']: p = min(100, p + 40)
-            out.append(f"Reason: range vs threshold.\nProbability: {round(p)}" if 'Reason' in r['system'] else str(round(p)))
+            out.append(f"Reason: range vs threshold.\nProbability: {round(p)}" if 'Reason:' in r['system'] else str(round(p)))
         return out
 
 class HFBackend:
