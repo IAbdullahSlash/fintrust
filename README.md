@@ -21,6 +21,7 @@ paper/
     fair/                  vectorized engine, synthetic study, FI-2010 agents, NSE volatility task
     round2/                final study: all baselines, both tuning rules, BTC/USD, ablation, input faults,
                            pooled NSE evidence, risk outcome, table and figure generators
+    llm/                   LLM forecaster study (pre-registered protocol, Kaggle notebook, free-API clients, replay)
     real/                  earlier FI-2010 / NSE replay through the unmodified prototype (kept for reference;
                            real/replay.py is used by fair/verify.py)
     simulate.py ...        earlier synthetic study (first draft; simulate.py is still imported by fair/)
