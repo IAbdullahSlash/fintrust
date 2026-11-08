@@ -82,3 +82,8 @@ the prompt. Rate reported per model; it is not visible to the combiners (this is
 Kaggle (self-hosted, no API cost): about 19k short generations. Groq free tier: about 1,500 calls for the
 2025 swap variant (plus about 750 for a 2024-07..12 sanity window), run over several days with the
 resumable client. Zoho QuickML: about 1,500 calls, within the monthly free token allowance.
+
+## Changes made before any result was seen
+
+- 2026-11-08: the Groq (gpt-oss-120b) swap variant is dropped because the free tier would need about a week of
+  daily runs. F4 uses Llama-3.2-1B-Instruct; the Zoho variant stays optional. No LLM output had been analysed.
