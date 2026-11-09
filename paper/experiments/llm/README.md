@@ -8,6 +8,7 @@ The protocol is fixed in [`PREREGISTRATION.md`](PREREGISTRATION.md) and was writ
 | `api_backends.py` | Groq and Zoho Catalyst free-tier clients (standard library only) |
 | `kaggle_llm_forecaster.ipynb` | the self-hosted run on Kaggle's free T4 GPUs (Llama 3.1 8B + Llama 3.2 1B) |
 | `kaggle_llm_experiments2_3.ipynb` | follow-up run (addendum): experiment 2 (signals + reasoning) and experiment 3 (Phi-3-medium, cutoff Oct 2023) |
+| `kaggle_llm_experiment3.ipynb` | experiment 3 alone in a fresh session (the combined run ran out of GPU memory on Phi-3-medium) |
 | `run_llm.py` | adds the LLM agent to the NSE agents, builds every fault scenario, runs the combiners, writes `llm_results.json` |
 | `outputs/` | model answers, one JSONL per model and condition (committed, like the other forecast files) |
 | `requests/` | prompts built from the price file (not committed: derived from Yahoo Finance data) |

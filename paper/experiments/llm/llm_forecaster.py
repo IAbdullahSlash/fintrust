@@ -173,7 +173,7 @@ class StubBackend:
         return out
 
 class HFBackend:
-    def __init__(self, model_id, revision=None, dtype='float16', max_batch=16, quant=None):
+    def __init__(self, model_id, revision=None, dtype='float16', max_batch=16, quant=None, gpu_frac=None):
         import torch
         from transformers import AutoTokenizer, AutoModelForCausalLM
         try:
@@ -187,6 +187,8 @@ class HFBackend:
         if quant == '8bit':          # LLM.int8 weights (bitsandbytes), for models too large for fp16 on 2 x T4
             from transformers import BitsAndBytesConfig
             kw['quantization_config'] = BitsAndBytesConfig(load_in_8bit=True)
+        if gpu_frac:                 # spread layers evenly and leave headroom on every GPU for activations
+            kw['max_memory'] = {i: f'{int(torch.cuda.get_device_properties(i).total_memory * gpu_frac / 2**20)}MiB' for i in range(torch.cuda.device_count())}
         self.model = AutoModelForCausalLM.from_pretrained(model_id, revision=revision, torch_dtype=getattr(torch, dtype), device_map='auto', **kw).eval()
         self.quant = quant or 'none'
         self.torch = torch
@@ -197,11 +199,17 @@ class HFBackend:
             except Exception:    # template without a system role: put the instruction at the top of the user turn
                 return self.tok.apply_chat_template([{'role': 'user', 'content': r['system'] + '\n\n' + r['user']}], tokenize=False, add_generation_prompt=True)
         texts = [chat(r) for r in batch]
-        enc = self.tok(texts, return_tensors='pt', padding=True, add_special_tokens=False).to(self.model.device)
-        with self.torch.no_grad():
-            g = self.model.generate(**enc, max_new_tokens=max(r['max_new_tokens'] for r in batch), do_sample=False,
-                                    temperature=None, top_p=None, pad_token_id=self.tok.pad_token_id)
-        return [self.tok.decode(x[enc['input_ids'].shape[1]:], skip_special_tokens=True).strip() for x in g]
+        try:
+            enc = self.tok(texts, return_tensors='pt', padding=True, add_special_tokens=False).to(self.model.device)
+            with self.torch.no_grad():
+                g = self.model.generate(**enc, max_new_tokens=max(r['max_new_tokens'] for r in batch), do_sample=False,
+                                        temperature=None, top_p=None, pad_token_id=self.tok.pad_token_id)
+            return [self.tok.decode(x[enc['input_ids'].shape[1]:], skip_special_tokens=True).strip() for x in g]
+        except self.torch.cuda.OutOfMemoryError:
+            # out of GPU memory: free it and retry in two halves (greedy decoding; only padding changes)
+            enc = g = None; self.torch.cuda.empty_cache()
+            if len(batch) == 1: raise
+            h = len(batch) // 2; return self.generate(batch[:h]) + self.generate(batch[h:])
 
 class VLLMBackend:
     def __init__(self, model_id, revision=None, dtype='float16', max_batch=256, tp=None):
