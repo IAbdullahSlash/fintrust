@@ -23,7 +23,7 @@ def corrupt_matrix(P, fault):
 def ft(P, y, h, decay=.9, temperature=.2, prior_mass=20, window=50, minimum=200, consecutive=3,
        bad_thr=.05, good_thr=0., auto_clear=True, clear_at=None, clear_agent=None, probation_cap=.1, loss_shift=None, start='SHADOW'):
     T, K = P.shape
-    st = [start] * K; ls = [prior_mass * .25] * K; ms = [float(prior_mass)] * K
+    st = list(start) if isinstance(start, (list, tuple)) else [start] * K; ls = [prior_mass * .25] * K; ms = [float(prior_mass)] * K
     cnt = [0] * K; since = [0] * K; good = [0] * K; bad = [0] * K; win = [[] for _ in range(K)]; clr = [True] * K
     out = np.empty(T); cov = np.zeros(T, bool); W = np.zeros((T, K)); trans = []
     for t in range(T):

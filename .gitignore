@@ -3,3 +3,4 @@ __pycache__/
 .venv/
 data/raw/
 .DS_Store
+paper/experiments/llm/requests/

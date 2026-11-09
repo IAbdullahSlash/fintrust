@@ -1,0 +1,515 @@
+{
+ "protocol": "PREREGISTRATION.md",
+ "hyper": {
+  "LW": {
+   "decay": 0.99,
+   "temperature": 0.01
+  },
+  "FT": {
+   "decay": 0.995,
+   "temperature": 0.005
+  },
+  "FS": {
+   "eta": 1,
+   "alpha": 0.001
+  },
+  "DWM": {
+   "beta": 0.9,
+   "theta": 0.1,
+   "period": 1
+  }
+ },
+ "main": "phi3_medium",
+ "available": {
+  "llama31_8b:clean": 2958,
+  "llama31_8b:clean_pre": 2220,
+  "llama31_8b:feat_clean": 2958,
+  "llama31_8b:feat_news_alarm": 1482,
+  "llama31_8b:feat_news_calm": 1482,
+  "llama31_8b:feat_persona": 1482,
+  "llama31_8b:named": 2958,
+  "llama31_8b:named_pre": 2220,
+  "llama31_8b:news_alarm": 1482,
+  "llama31_8b:news_calm": 1482,
+  "llama31_8b:persona": 1482,
+  "llama31_8b:rationale": 2958,
+  "llama32_1b:clean": 1482,
+  "llama32_1b:feat_clean": 1482,
+  "phi3_medium:clean": 2958,
+  "phi3_medium:clean_pre": 2220,
+  "phi3_medium:named": 2958,
+  "phi3_medium:named_pre": 2220,
+  "phi3_medium:news_alarm": 1482,
+  "phi3_medium:news_calm": 1482,
+  "phi3_medium:persona": 1482,
+  "phi3_medium_raw:clean": 2958,
+  "phi3_medium_raw:clean_pre": 2220,
+  "phi3_medium_raw:news_alarm": 1482,
+  "phi3_medium_raw:news_calm": 1482,
+  "phi3_medium_raw:persona": 1482
+ },
+ "agents": {
+  "^NSEI": {
+   "RV": 0.2395567101652564,
+   "RANGE": 0.24376321503461912,
+   "GBT": 0.2416147763787118,
+   "VIX": 0.23812293273726637,
+   "LLM": 0.25,
+   "LLM_2024": 0.25,
+   "base_rate_2025": 0.43724696356275305
+  },
+  "RELIANCE.NS": {
+   "RV": 0.2420830846583271,
+   "RANGE": 0.2403491947820862,
+   "GBT": 0.2402226132955008,
+   "VIX": 0.2351177007868168,
+   "LLM": 0.25,
+   "LLM_2024": 0.25,
+   "base_rate_2025": 0.3967611336032389
+  },
+  "TCS.NS": {
+   "RV": 0.2323412841290047,
+   "RANGE": 0.2372469538077465,
+   "GBT": 0.23515005656784999,
+   "VIX": 0.22947251421978462,
+   "LLM": 0.25,
+   "LLM_2024": 0.25,
+   "base_rate_2025": 0.3765182186234818
+  },
+  "HDFCBANK.NS": {
+   "RV": 0.23524784059712028,
+   "RANGE": 0.23677995257191187,
+   "GBT": 0.23873666374778185,
+   "VIX": 0.23132422764664365,
+   "LLM": 0.25,
+   "LLM_2024": 0.25,
+   "base_rate_2025": 0.3765182186234818
+  },
+  "INFY.NS": {
+   "RV": 0.23254577235354756,
+   "RANGE": 0.23621245334228788,
+   "GBT": 0.23120228620494795,
+   "VIX": 0.2367624324681034,
+   "LLM": 0.25,
+   "LLM_2024": 0.25,
+   "base_rate_2025": 0.41295546558704455
+  },
+  "ICICIBANK.NS": {
+   "RV": 0.2434065090736294,
+   "RANGE": 0.24381621952496962,
+   "GBT": 0.2440092230634483,
+   "VIX": 0.24254580519987046,
+   "LLM": 0.25,
+   "LLM_2024": 0.25,
+   "base_rate_2025": 0.4048582995951417
+  }
+ },
+ "scenarios": {
+  "clean": {
+   "brier": {
+    "EW": 0.23787103345464175,
+    "LW": 0.23680627946811858,
+    "FS": 0.2361423141717121,
+    "DWM": 0.23789560668988977,
+    "FT": 0.23625254252258748,
+    "FT-forced": 0.23635364818892535,
+    "EW-noLLM": 0.23644016809705196,
+    "LW-noLLM": 0.23638746294859037,
+    "FS-noLLM": 0.23606453137283867,
+    "DWM-noLLM": 0.2365283703561597,
+    "FT-noLLM": 0.23625254252258748,
+    "ORACLE": 0.23787103345464175
+   },
+   "ft_minus_lw_ci": [
+    -0.001052521435792093,
+    1.3811864823925181e-05
+   ],
+   "llm_admitted": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "detect_days": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "detect_days_forced": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "false_quarantines": 0,
+   "coverage": 1.0
+  },
+  "F1_news_alarm": {
+   "brier": {
+    "EW": 0.23791387632164498,
+    "LW": 0.23680338427088826,
+    "FS": 0.23614238175378308,
+    "DWM": 0.23787896473494086,
+    "FT": 0.23625254252258748,
+    "FT-forced": 0.23635195783787757,
+    "EW-noLLM": 0.23644016809705196,
+    "LW-noLLM": 0.23638746294859037,
+    "FS-noLLM": 0.23606453137283867,
+    "DWM-noLLM": 0.2365283703561597,
+    "FT-noLLM": 0.23625254252258748,
+    "ORACLE": 0.23644016809705196
+   },
+   "ft_minus_lw_ci": [
+    -0.0010531963766525986,
+    1.4693840305523318e-05
+   ],
+   "llm_admitted": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "detect_days": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "detect_days_forced": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "false_quarantines": 0,
+   "coverage": 1.0
+  },
+  "F2_news_calm": {
+   "brier": {
+    "EW": 0.23787103345464175,
+    "LW": 0.23680627946811858,
+    "FS": 0.2361423141717121,
+    "DWM": 0.23789560668988977,
+    "FT": 0.23625254252258748,
+    "FT-forced": 0.23635364818892535,
+    "EW-noLLM": 0.23644016809705196,
+    "LW-noLLM": 0.23638746294859037,
+    "FS-noLLM": 0.23606453137283867,
+    "DWM-noLLM": 0.2365283703561597,
+    "FT-noLLM": 0.23625254252258748,
+    "ORACLE": 0.23644016809705196
+   },
+   "ft_minus_lw_ci": [
+    -0.001052521435792093,
+    1.3811864823925181e-05
+   ],
+   "llm_admitted": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "detect_days": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "detect_days_forced": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "false_quarantines": 0,
+   "coverage": 1.0
+  },
+  "F3_persona": {
+   "brier": {
+    "EW": 0.23787103345464175,
+    "LW": 0.23680627946811858,
+    "FS": 0.2361423141717121,
+    "DWM": 0.23789560668988977,
+    "FT": 0.23625254252258748,
+    "FT-forced": 0.23635364818892535,
+    "EW-noLLM": 0.23644016809705196,
+    "LW-noLLM": 0.23638746294859037,
+    "FS-noLLM": 0.23606453137283867,
+    "DWM-noLLM": 0.2365283703561597,
+    "FT-noLLM": 0.23625254252258748,
+    "ORACLE": 0.23644016809705196
+   },
+   "ft_minus_lw_ci": [
+    -0.001052521435792093,
+    1.3811864823925181e-05
+   ],
+   "llm_admitted": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "detect_days": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "detect_days_forced": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "false_quarantines": 0,
+   "coverage": 1.0
+  },
+  "F4_swap_llama32_1b": {
+   "brier": {
+    "EW": 0.239401967625612,
+    "LW": 0.23654455369925878,
+    "FS": 0.23609368525479876,
+    "DWM": 0.2397940516623822,
+    "FT": 0.23625254252258748,
+    "FT-forced": 0.2362865620414043,
+    "EW-noLLM": 0.23644016809705196,
+    "LW-noLLM": 0.23638746294859037,
+    "FS-noLLM": 0.23606453137283867,
+    "DWM-noLLM": 0.2365283703561597,
+    "FT-noLLM": 0.23625254252258748,
+    "ORACLE": 0.23644016809705196
+   },
+   "ft_minus_lw_ci": [
+    -0.0003506253935247562,
+    7.707207474623062e-05
+   ],
+   "llm_admitted": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "detect_days": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "detect_days_forced": [
+    154,
+    154,
+    154,
+    154,
+    154,
+    154
+   ],
+   "false_quarantines": 0,
+   "coverage": 1.0
+  },
+  "OUT_inversion": {
+   "brier": {
+    "EW": 0.23787103345464175,
+    "LW": 0.23680627946811852,
+    "FS": 0.2361423141717121,
+    "DWM": 0.23789560668988974,
+    "FT": 0.23625254252258748,
+    "FT-forced": 0.23635364818892535,
+    "EW-noLLM": 0.23644016809705196,
+    "LW-noLLM": 0.23638746294859037,
+    "FS-noLLM": 0.23606453137283864,
+    "DWM-noLLM": 0.2365283703561597,
+    "FT-noLLM": 0.23625254252258748,
+    "ORACLE": 0.23644016809705196
+   },
+   "ft_minus_lw_ci": [
+    -0.0010525214357920926,
+    1.3811864823926807e-05
+   ],
+   "llm_admitted": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "detect_days": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "detect_days_forced": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "false_quarantines": 0,
+   "coverage": 1.0
+  },
+  "OUT_stuck": {
+   "brier": {
+    "EW": 0.2535931927007686,
+    "LW": 0.23635822587232513,
+    "FS": 0.23604978878019936,
+    "DWM": 0.24756844221356678,
+    "FT": 0.23625254252258748,
+    "FT-forced": 0.23625207577166482,
+    "EW-noLLM": 0.23644016809705196,
+    "LW-noLLM": 0.23638746294859037,
+    "FS-noLLM": 0.23606453137283864,
+    "DWM-noLLM": 0.2365283703561597,
+    "FT-noLLM": 0.23625254252258748,
+    "ORACLE": 0.23644016809705196
+   },
+   "ft_minus_lw_ci": [
+    -0.0003656380074092193,
+    8.995172424786824e-05
+   ],
+   "llm_admitted": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "detect_days": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "detect_days_forced": [
+    154,
+    154,
+    154,
+    154,
+    154,
+    154
+   ],
+   "false_quarantines": 0,
+   "coverage": 1.0
+  },
+  "OUT_overconfident": {
+   "brier": {
+    "EW": 0.23787103345464175,
+    "LW": 0.23680627946811852,
+    "FS": 0.2361423141717121,
+    "DWM": 0.23789560668988974,
+    "FT": 0.23625254252258748,
+    "FT-forced": 0.23635364818892535,
+    "EW-noLLM": 0.23644016809705196,
+    "LW-noLLM": 0.23638746294859037,
+    "FS-noLLM": 0.23606453137283864,
+    "DWM-noLLM": 0.2365283703561597,
+    "FT-noLLM": 0.23625254252258748,
+    "ORACLE": 0.23644016809705196
+   },
+   "ft_minus_lw_ci": [
+    -0.0010525214357920926,
+    1.3811864823926807e-05
+   ],
+   "llm_admitted": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "detect_days": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "detect_days_forced": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "false_quarantines": 0,
+   "coverage": 1.0
+  }
+ },
+ "parse_fail": {
+  "llama31_8b:clean": 0.0,
+  "llama31_8b:clean_pre": 0.0,
+  "llama31_8b:feat_clean": 0.0,
+  "llama31_8b:feat_news_alarm": 0.0,
+  "llama31_8b:feat_news_calm": 0.0,
+  "llama31_8b:feat_persona": 0.0,
+  "llama31_8b:named": 0.0,
+  "llama31_8b:named_pre": 0.0,
+  "llama31_8b:news_alarm": 0.0,
+  "llama31_8b:news_calm": 0.0,
+  "llama31_8b:persona": 0.0,
+  "llama31_8b:rationale": 0.0,
+  "llama32_1b:clean": 0.0,
+  "llama32_1b:feat_clean": 0.0,
+  "phi3_medium:clean": 0.0,
+  "phi3_medium:clean_pre": 0.0,
+  "phi3_medium:named": 0.0,
+  "phi3_medium:named_pre": 0.0,
+  "phi3_medium:news_alarm": 0.0,
+  "phi3_medium:news_calm": 0.0,
+  "phi3_medium:persona": 0.0,
+  "phi3_medium_raw:clean": 1.0,
+  "phi3_medium_raw:clean_pre": 1.0,
+  "phi3_medium_raw:news_alarm": 1.0,
+  "phi3_medium_raw:news_calm": 1.0,
+  "phi3_medium_raw:persona": 1.0
+ },
+ "leakage": {
+  "brier": {
+   "clean_pre": 0.25,
+   "named_pre": 0.25011261261261264,
+   "clean": 0.25,
+   "named": 0.25
+  },
+  "gap_pre": 0.00011261261261263922,
+  "gap_post": 0.0
+ }
+}
