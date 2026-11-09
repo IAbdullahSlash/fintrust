@@ -1,0 +1,1670 @@
+{
+ "protocol": "MONITORS_ADDENDUM.md",
+ "configs": {
+  "E1_llama8b": {
+   "thresholds": {
+    "L1": 9.091843951935992,
+    "L2": 9.091843951935992,
+    "B1": 1.7735140288132234,
+    "B1_rule": 0.25,
+    "B3": 0.05
+   },
+   "scenarios": {
+    "clean": {
+     "L1": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "L2": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B1": {
+      "assets": 1,
+      "median_days": 157.0,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       157,
+       null
+      ]
+     },
+     "B1_rule": {
+      "assets": 6,
+      "median_days": 2.0,
+      "per_asset": [
+       0,
+       0,
+       5,
+       4,
+       4,
+       0
+      ]
+     },
+     "B3": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B2_probe_alarm_share": {
+      "5": 0.0,
+      "10": 0.0,
+      "20": 0.0
+     },
+     "mean_abs_change_vs_clean": 0.0
+    },
+    "news_alarm": {
+     "L1": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "L2": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B1": {
+      "assets": 6,
+      "median_days": 19.0,
+      "per_asset": [
+       79,
+       17,
+       19,
+       18,
+       19,
+       26
+      ]
+     },
+     "B1_rule": {
+      "assets": 6,
+      "median_days": 0.0,
+      "per_asset": [
+       0,
+       0,
+       4,
+       0,
+       4,
+       0
+      ]
+     },
+     "B3": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B2_probe_alarm_share": {
+      "5": 0.0,
+      "10": 0.0,
+      "20": 0.0
+     },
+     "mean_abs_change_vs_clean": 0.27280701754385966
+    },
+    "news_calm": {
+     "L1": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "L2": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B1": {
+      "assets": 6,
+      "median_days": 19.0,
+      "per_asset": [
+       19,
+       4,
+       13,
+       38,
+       19,
+       44
+      ]
+     },
+     "B1_rule": {
+      "assets": 6,
+      "median_days": 0.0,
+      "per_asset": [
+       0,
+       0,
+       2,
+       0,
+       4,
+       0
+      ]
+     },
+     "B3": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B2_probe_alarm_share": {
+      "5": 0.0,
+      "10": 0.0,
+      "20": 0.0
+     },
+     "mean_abs_change_vs_clean": 0.23708502024291497
+    },
+    "persona": {
+     "L1": {
+      "assets": 3,
+      "median_days": 67.0,
+      "per_asset": [
+       null,
+       188,
+       67,
+       null,
+       null,
+       66
+      ]
+     },
+     "L2": {
+      "assets": 3,
+      "median_days": 67.0,
+      "per_asset": [
+       null,
+       188,
+       67,
+       null,
+       null,
+       66
+      ]
+     },
+     "B1": {
+      "assets": 5,
+      "median_days": 19.0,
+      "per_asset": [
+       19,
+       null,
+       18,
+       89,
+       106,
+       17
+      ]
+     },
+     "B1_rule": {
+      "assets": 6,
+      "median_days": 1.5,
+      "per_asset": [
+       7,
+       0,
+       0,
+       3,
+       7,
+       0
+      ]
+     },
+     "B3": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B2_probe_alarm_share": {
+      "5": 0.9808333333333333,
+      "10": 0.9940000000000001,
+      "20": 1.0
+     },
+     "mean_abs_change_vs_clean": 0.4012145748987854
+    },
+    "swap_1b": {
+     "L1": {
+      "assets": 5,
+      "median_days": 63.0,
+      "per_asset": [
+       63,
+       12,
+       64,
+       73,
+       null,
+       57
+      ]
+     },
+     "L2": {
+      "assets": 5,
+      "median_days": 63.0,
+      "per_asset": [
+       63,
+       12,
+       64,
+       73,
+       null,
+       57
+      ]
+     },
+     "B1": {
+      "assets": 3,
+      "median_days": 18.0,
+      "per_asset": [
+       19,
+       null,
+       18,
+       null,
+       null,
+       18
+      ]
+     },
+     "B1_rule": {
+      "assets": 6,
+      "median_days": 3.5,
+      "per_asset": [
+       7,
+       0,
+       0,
+       7,
+       7,
+       0
+      ]
+     },
+     "B3": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B2_probe_alarm_share": {
+      "5": 0.9776666666666666,
+      "10": 0.9961666666666668,
+      "20": 0.9998333333333335
+     },
+     "mean_abs_change_vs_clean": 0.430944669365722
+    },
+    "inversion": {
+     "L1": {
+      "assets": 5,
+      "median_days": 83.0,
+      "per_asset": [
+       null,
+       74,
+       28,
+       83,
+       218,
+       83
+      ]
+     },
+     "L2": {
+      "assets": 5,
+      "median_days": 83.0,
+      "per_asset": [
+       null,
+       74,
+       28,
+       83,
+       218,
+       83
+      ]
+     },
+     "B1": {
+      "assets": 6,
+      "median_days": 7.0,
+      "per_asset": [
+       6,
+       4,
+       8,
+       8,
+       8,
+       5
+      ]
+     },
+     "B1_rule": {
+      "assets": 6,
+      "median_days": 0.0,
+      "per_asset": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "B3": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B2_probe_alarm_share": {
+      "5": 1.0,
+      "10": 1.0,
+      "20": 1.0
+     },
+     "mean_abs_change_vs_clean": 0.5662618083670716
+    },
+    "stuck": {
+     "L1": {
+      "assets": 6,
+      "median_days": 24.5,
+      "per_asset": [
+       22,
+       24,
+       31,
+       35,
+       25,
+       12
+      ]
+     },
+     "L2": {
+      "assets": 6,
+      "median_days": 24.5,
+      "per_asset": [
+       22,
+       24,
+       31,
+       35,
+       25,
+       12
+      ]
+     },
+     "B1": {
+      "assets": 6,
+      "median_days": 6.5,
+      "per_asset": [
+       6,
+       4,
+       7,
+       7,
+       7,
+       5
+      ]
+     },
+     "B1_rule": {
+      "assets": 6,
+      "median_days": 0.0,
+      "per_asset": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "B3": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B2_probe_alarm_share": {
+      "5": 1.0,
+      "10": 1.0,
+      "20": 1.0
+     },
+     "mean_abs_change_vs_clean": 0.5190553306342779
+    },
+    "overconfident": {
+     "L1": {
+      "assets": 5,
+      "median_days": 17.0,
+      "per_asset": [
+       17,
+       16,
+       null,
+       21,
+       153,
+       11
+      ]
+     },
+     "L2": {
+      "assets": 5,
+      "median_days": 17.0,
+      "per_asset": [
+       17,
+       16,
+       null,
+       21,
+       153,
+       11
+      ]
+     },
+     "B1": {
+      "assets": 6,
+      "median_days": 9.0,
+      "per_asset": [
+       6,
+       4,
+       14,
+       15,
+       12,
+       5
+      ]
+     },
+     "B1_rule": {
+      "assets": 6,
+      "median_days": 0.0,
+      "per_asset": [
+       0,
+       0,
+       0,
+       2,
+       0,
+       0
+      ]
+     },
+     "B3": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B2_probe_alarm_share": {
+      "5": 0.9231666666666666,
+      "10": 0.9748333333333333,
+      "20": 0.9916666666666667
+     },
+     "mean_abs_change_vs_clean": 0.21686909581646419
+    }
+   }
+  },
+  "E2_llama8b_signals": {
+   "thresholds": {
+    "L1": 4.514222967667715,
+    "L2": 7.688516995235242,
+    "B1": 1.2644634062932385,
+    "B1_rule": 0.25,
+    "B3": 0.05
+   },
+   "scenarios": {
+    "clean": {
+     "L1": {
+      "assets": 3,
+      "median_days": 86.0,
+      "per_asset": [
+       null,
+       155,
+       84,
+       null,
+       86,
+       null
+      ]
+     },
+     "L2": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B1": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B1_rule": {
+      "assets": 6,
+      "median_days": 0.0,
+      "per_asset": [
+       0,
+       19,
+       0,
+       0,
+       0,
+       16
+      ]
+     },
+     "B3": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B2_probe_alarm_share": {
+      "5": 0.0,
+      "10": 0.0,
+      "20": 0.0
+     },
+     "mean_abs_change_vs_clean": 0.0
+    },
+    "news_alarm": {
+     "L1": {
+      "assets": 6,
+      "median_days": 17.0,
+      "per_asset": [
+       13,
+       24,
+       17,
+       36,
+       17,
+       12
+      ]
+     },
+     "L2": {
+      "assets": 5,
+      "median_days": 33.0,
+      "per_asset": [
+       33,
+       null,
+       31,
+       38,
+       85,
+       16
+      ]
+     },
+     "B1": {
+      "assets": 6,
+      "median_days": 24.0,
+      "per_asset": [
+       33,
+       31,
+       17,
+       50,
+       9,
+       9
+      ]
+     },
+     "B1_rule": {
+      "assets": 6,
+      "median_days": 0.0,
+      "per_asset": [
+       0,
+       2,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "B3": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B2_probe_alarm_share": {
+      "5": 0.0,
+      "10": 0.0,
+      "20": 0.0
+     },
+     "mean_abs_change_vs_clean": 0.09360998650472334
+    },
+    "news_calm": {
+     "L1": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "L2": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B1": {
+      "assets": 6,
+      "median_days": 11.5,
+      "per_asset": [
+       13,
+       10,
+       11,
+       12,
+       14,
+       8
+      ]
+     },
+     "B1_rule": {
+      "assets": 6,
+      "median_days": 0.0,
+      "per_asset": [
+       0,
+       2,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "B3": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B2_probe_alarm_share": {
+      "5": 0.0,
+      "10": 0.0,
+      "20": 0.0
+     },
+     "mean_abs_change_vs_clean": 0.12516194331983807
+    },
+    "persona": {
+     "L1": {
+      "assets": 6,
+      "median_days": 10.5,
+      "per_asset": [
+       11,
+       17,
+       4,
+       7,
+       11,
+       10
+      ]
+     },
+     "L2": {
+      "assets": 6,
+      "median_days": 11.5,
+      "per_asset": [
+       12,
+       23,
+       5,
+       9,
+       13,
+       11
+      ]
+     },
+     "B1": {
+      "assets": 6,
+      "median_days": 6.0,
+      "per_asset": [
+       5,
+       7,
+       5,
+       6,
+       6,
+       6
+      ]
+     },
+     "B1_rule": {
+      "assets": 6,
+      "median_days": 0.0,
+      "per_asset": [
+       0,
+       1,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "B3": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B2_probe_alarm_share": {
+      "5": 1.0,
+      "10": 1.0,
+      "20": 1.0
+     },
+     "mean_abs_change_vs_clean": 0.216774628879892
+    },
+    "swap_1b": {
+     "L1": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "L2": {
+      "assets": 1,
+      "median_days": 106.0,
+      "per_asset": [
+       null,
+       106,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B1": {
+      "assets": 6,
+      "median_days": 5.0,
+      "per_asset": [
+       4,
+       5,
+       5,
+       5,
+       5,
+       5
+      ]
+     },
+     "B1_rule": {
+      "assets": 6,
+      "median_days": 0.0,
+      "per_asset": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "B3": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B2_probe_alarm_share": {
+      "5": 0.9993333333333334,
+      "10": 1.0,
+      "20": 1.0
+     },
+     "mean_abs_change_vs_clean": 0.2296471659919028
+    },
+    "inversion": {
+     "L1": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "L2": {
+      "assets": 5,
+      "median_days": 83.0,
+      "per_asset": [
+       54,
+       83,
+       42,
+       114,
+       86,
+       null
+      ]
+     },
+     "B1": {
+      "assets": 6,
+      "median_days": 6.5,
+      "per_asset": [
+       6,
+       7,
+       5,
+       4,
+       7,
+       7
+      ]
+     },
+     "B1_rule": {
+      "assets": 6,
+      "median_days": 0.0,
+      "per_asset": [
+       0,
+       1,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "B3": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B2_probe_alarm_share": {
+      "5": 1.0,
+      "10": 1.0,
+      "20": 1.0
+     },
+     "mean_abs_change_vs_clean": 0.3058569500674763
+    },
+    "stuck": {
+     "L1": {
+      "assets": 6,
+      "median_days": 8.5,
+      "per_asset": [
+       10,
+       16,
+       4,
+       7,
+       10,
+       5
+      ]
+     },
+     "L2": {
+      "assets": 6,
+      "median_days": 10.5,
+      "per_asset": [
+       11,
+       17,
+       5,
+       8,
+       11,
+       10
+      ]
+     },
+     "B1": {
+      "assets": 6,
+      "median_days": 5.0,
+      "per_asset": [
+       4,
+       5,
+       5,
+       4,
+       5,
+       5
+      ]
+     },
+     "B1_rule": {
+      "assets": 6,
+      "median_days": 0.0,
+      "per_asset": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "B3": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B2_probe_alarm_share": {
+      "5": 1.0,
+      "10": 1.0,
+      "20": 1.0
+     },
+     "mean_abs_change_vs_clean": 0.3073279352226719
+    },
+    "overconfident": {
+     "L1": {
+      "assets": 6,
+      "median_days": 6.0,
+      "per_asset": [
+       9,
+       3,
+       4,
+       7,
+       10,
+       5
+      ]
+     },
+     "L2": {
+      "assets": 6,
+      "median_days": 8.5,
+      "per_asset": [
+       10,
+       16,
+       4,
+       7,
+       11,
+       7
+      ]
+     },
+     "B1": {
+      "assets": 6,
+      "median_days": 5.0,
+      "per_asset": [
+       4,
+       5,
+       5,
+       4,
+       6,
+       5
+      ]
+     },
+     "B1_rule": {
+      "assets": 6,
+      "median_days": 0.0,
+      "per_asset": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "B3": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B2_probe_alarm_share": {
+      "5": 1.0,
+      "10": 1.0,
+      "20": 1.0
+     },
+     "mean_abs_change_vs_clean": 0.3251012145748988
+    }
+   }
+  },
+  "E3_phi3": {
+   "thresholds": {
+    "L1": 0.0,
+    "L2": 0.0,
+    "B1": 0.255056380817234,
+    "B1_rule": 0.25,
+    "B3": 0.05
+   },
+   "scenarios": {
+    "clean": {
+     "L1": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "L2": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B1": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B1_rule": {
+      "assets": 6,
+      "median_days": 0.0,
+      "per_asset": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "B3": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B2_probe_alarm_share": {
+      "5": 0.0,
+      "10": 0.0,
+      "20": 0.0
+     },
+     "mean_abs_change_vs_clean": 0.0
+    },
+    "news_alarm": {
+     "L1": {
+      "assets": 4,
+      "median_days": 81.0,
+      "per_asset": [
+       80,
+       null,
+       111,
+       81,
+       81,
+       null
+      ]
+     },
+     "L2": {
+      "assets": 4,
+      "median_days": 81.0,
+      "per_asset": [
+       80,
+       null,
+       111,
+       81,
+       81,
+       null
+      ]
+     },
+     "B1": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B1_rule": {
+      "assets": 6,
+      "median_days": 0.0,
+      "per_asset": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "B3": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B2_probe_alarm_share": {
+      "5": 0.0,
+      "10": 0.0,
+      "20": 0.0
+     },
+     "mean_abs_change_vs_clean": 0.00040485829959514163
+    },
+    "news_calm": {
+     "L1": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "L2": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B1": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B1_rule": {
+      "assets": 6,
+      "median_days": 0.0,
+      "per_asset": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "B3": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B2_probe_alarm_share": {
+      "5": 0.0,
+      "10": 0.0,
+      "20": 0.0
+     },
+     "mean_abs_change_vs_clean": 0.0
+    },
+    "persona": {
+     "L1": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "L2": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B1": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B1_rule": {
+      "assets": 6,
+      "median_days": 0.0,
+      "per_asset": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "B3": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B2_probe_alarm_share": {
+      "5": 0.0,
+      "10": 0.0,
+      "20": 0.0
+     },
+     "mean_abs_change_vs_clean": 0.0
+    },
+    "swap_1b": {
+     "L1": {
+      "assets": 6,
+      "median_days": 1.0,
+      "per_asset": [
+       2,
+       2,
+       1,
+       1,
+       1,
+       1
+      ]
+     },
+     "L2": {
+      "assets": 6,
+      "median_days": 1.0,
+      "per_asset": [
+       1,
+       1,
+       1,
+       1,
+       1,
+       1
+      ]
+     },
+     "B1": {
+      "assets": 6,
+      "median_days": 0.0,
+      "per_asset": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "B1_rule": {
+      "assets": 6,
+      "median_days": 0.0,
+      "per_asset": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "B3": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B2_probe_alarm_share": {
+      "5": 1.0,
+      "10": 1.0,
+      "20": 1.0
+     },
+     "mean_abs_change_vs_clean": 0.5
+    },
+    "inversion": {
+     "L1": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "L2": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B1": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B1_rule": {
+      "assets": 6,
+      "median_days": 0.0,
+      "per_asset": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "B3": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B2_probe_alarm_share": {
+      "5": 0.0,
+      "10": 0.0,
+      "20": 0.0
+     },
+     "mean_abs_change_vs_clean": 0.0
+    },
+    "stuck": {
+     "L1": {
+      "assets": 6,
+      "median_days": 2.5,
+      "per_asset": [
+       1,
+       1,
+       3,
+       2,
+       3,
+       4
+      ]
+     },
+     "L2": {
+      "assets": 6,
+      "median_days": 1.0,
+      "per_asset": [
+       1,
+       1,
+       1,
+       1,
+       1,
+       1
+      ]
+     },
+     "B1": {
+      "assets": 6,
+      "median_days": 0.0,
+      "per_asset": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "B1_rule": {
+      "assets": 6,
+      "median_days": 0.0,
+      "per_asset": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "B3": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B2_probe_alarm_share": {
+      "5": 1.0,
+      "10": 1.0,
+      "20": 1.0
+     },
+     "mean_abs_change_vs_clean": 0.4500000000000002
+    },
+    "overconfident": {
+     "L1": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "L2": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B1": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B1_rule": {
+      "assets": 6,
+      "median_days": 0.0,
+      "per_asset": [
+       0,
+       0,
+       0,
+       0,
+       0,
+       0
+      ]
+     },
+     "B3": {
+      "assets": 0,
+      "median_days": null,
+      "per_asset": [
+       null,
+       null,
+       null,
+       null,
+       null,
+       null
+      ]
+     },
+     "B2_probe_alarm_share": {
+      "5": 0.0,
+      "10": 0.0,
+      "20": 0.0
+     },
+     "mean_abs_change_vs_clean": 0.0
+    }
+   }
+  }
+ }
+}
