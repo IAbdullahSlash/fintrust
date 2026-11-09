@@ -111,4 +111,11 @@ with 8-bit weights (bitsandbytes LLM.int8) because fp16 does not fit on 2 x T4. 
 Replay: `run_llm.py --main phi3_medium --swap llama32_1b --out llm_results_phi3.json`.
 (Changed the same day, before anything was run: Qwen2.5-7B was first listed here and replaced because its cutoff is undocumented.)
 
+**Deviation, 2026-11-09 (experiment 3, before any Phi-3 answer was scored).** In the first attempt Phi-3-medium ignored
+the "single integer" instruction on every prompt: all 9,624 replies began "To calculate/estimate the probability..." and
+were cut off at the 6-token budget, so none could be parsed (kept as `outputs/phi3_medium_raw__*.jsonl` and reported as a
+100% format failure, F5). The rerun keeps the prompts and budget and places "Probability (0-100): " at the start of the
+assistant turn (`answer_prefix`), so the model continues with the number. The run then stopped at the leakage probe with a
+GPU out-of-memory error; the rerun (`kaggle_llm_experiment3.ipynb`) spreads layers evenly and halves a batch that does not fit.
+
 No further model or prompt variants will be added to this paper's LLM study after these results are seen.

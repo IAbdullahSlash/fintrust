@@ -173,7 +173,7 @@ class StubBackend:
         return out
 
 class HFBackend:
-    def __init__(self, model_id, revision=None, dtype='float16', max_batch=16, quant=None, gpu_frac=None):
+    def __init__(self, model_id, revision=None, dtype='float16', max_batch=16, quant=None, gpu_frac=None, answer_prefix=None):
         import torch
         from transformers import AutoTokenizer, AutoModelForCausalLM
         try:
@@ -191,6 +191,7 @@ class HFBackend:
             kw['max_memory'] = {i: f'{int(torch.cuda.get_device_properties(i).total_memory * gpu_frac / 2**20)}MiB' for i in range(torch.cuda.device_count())}
         self.model = AutoModelForCausalLM.from_pretrained(model_id, revision=revision, torch_dtype=getattr(torch, dtype), device_map='auto', **kw).eval()
         self.quant = quant or 'none'
+        self.answer_prefix = answer_prefix    # text placed at the start of the assistant turn, so the model continues with the number
         self.torch = torch
     def generate(self, batch):
         def chat(r):
@@ -198,7 +199,7 @@ class HFBackend:
                                                       tokenize=False, add_generation_prompt=True)
             except Exception:    # template without a system role: put the instruction at the top of the user turn
                 return self.tok.apply_chat_template([{'role': 'user', 'content': r['system'] + '\n\n' + r['user']}], tokenize=False, add_generation_prompt=True)
-        texts = [chat(r) for r in batch]
+        texts = [chat(r) + (self.answer_prefix or '') for r in batch]
         try:
             enc = self.tok(texts, return_tensors='pt', padding=True, add_special_tokens=False).to(self.model.device)
             with self.torch.no_grad():
@@ -255,6 +256,7 @@ def run(backend, requests, out_dir, tag, start=None, end=None, batch=16, limit=N
                 p = parse_p(txt)
                 f.write(json.dumps(dict(id=r['id'], condition=r['condition'], asset=r['asset'], date=r['date'], tag=tag,
                                         model=backend.model_id, revision=backend.revision, raw=txt,
+                                        answer_prefix=getattr(backend, 'answer_prefix', None), quant=getattr(backend, 'quant', None),
                                         p=p if p is not None else .5, parse_ok=p is not None, ts=time.strftime('%Y-%m-%dT%H:%M:%S'))) + '\n')
             f.flush(); n += len(chunk)
             if (i // bs) % 20 == 0: print(f'  {n}/{len(todo)}  {time.time() - t0:.0f}s', flush=True)
