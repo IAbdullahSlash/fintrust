@@ -58,7 +58,7 @@ fig, ax = plt.subplots(2, 1, figsize=(3.4, 3.2), sharex=True, gridspec_kw=dict(h
 d = idx[k]
 ax[0].plot(d, pd.Series(clean.reindex(d).values).rolling(5, min_periods=1).mean(), color='#555', lw=1, label='original 8B model')
 ax[0].plot(d, pd.Series(p.values[k]).rolling(5, min_periods=1).mean(), color='#c0392b', lw=1, label='after silent swap to 1B')
-ax[0].set_ylabel('forecast\n(5-day mean)', fontsize=7); ax[0].legend(fontsize=6, frameon=False, loc='center right'); ax[0].tick_params(labelsize=6)
+ax[0].set_ylabel('forecast\n(5-day mean)', fontsize=7); ax[0].legend(fontsize=6, frameon=False, loc='lower center', bbox_to_anchor=(.5, 1.0), ncol=2, borderaxespad=.1); ax[0].tick_params(labelsize=6)
 ax[1].plot(d, B1, color='#2471a3', lw=1.2, label='answer drift (PSI)')
 ax[1].plot(d, L1, color='#7d3c98', lw=1, ls='--', label='loss CUSUM, one-sided')
 ax[1].plot(d, L2, color='#d68910', lw=1, ls=':', label='loss CUSUM, two-sided')
