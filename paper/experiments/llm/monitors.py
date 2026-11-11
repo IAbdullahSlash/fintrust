@@ -12,7 +12,7 @@ from run_llm import load_outputs  # noqa: E402
 
 R1 = ('2024-01-01', '2024-06-30'); R2 = ('2024-07-01', '2024-12-31'); ONSET = pd.Timestamp('2025-01-01')
 CONFIGS = {'E1_llama8b': ('llama31_8b', ''), 'E2_llama8b_signals': ('llama31_8b', 'feat_'), 'E3_phi3': ('phi3_medium', '')}
-SWAP = 'llama32_1b'; WIN = 20; BINS = np.linspace(0, 1, 11); PSI_RULE = .25; TOL = .10; KS = (5, 10, 20); NSETS = 1000
+SWAP = 'llama32_1b'; WIN = 20; BINS = np.linspace(0, 1, 11); PSI_RULE = .25; TOL = .10; KS = (5, 10, 20); NSETS = 1000; THR_MULT = 1.0
 
 def hist(p):
     c, _ = np.histogram(np.clip(p, 0, 1), BINS); c = c + .5; return c / c.sum()
@@ -40,7 +40,7 @@ def first(alarm, idx):
     ev = np.where((idx >= ONSET) & alarm)[0]
     return int(ev[0] - np.searchsorted(idx, ONSET)) if len(ev) else None
 
-def main():
+def main(out_name='monitors_results.json', verbose=True):
     lab = pd.read_csv(FAIR / 'nse_vol_forecasts.csv', index_col=0, parse_dates=True)
     o = load_outputs(HERE / 'outputs')
     def get(tag, cond):
@@ -76,7 +76,7 @@ def main():
                     b = (a['p'] - a['y']) ** 2; bl = np.r_[np.nan, b[:-1]]; k = np.where(a['r2'])[0]
                     v = cusum(bl[k], a['mu'], a['sd'], m == 'L2').max()
                 mx = max(mx, float(v))
-            thr[m] = mx
+            thr[m] = mx * THR_MULT
         thr['B1_rule'] = PSI_RULE; thr['B3'] = .05
         out = dict(thresholds=thr, scenarios={})
         rng = np.random.default_rng(0)
@@ -114,10 +114,10 @@ def main():
             summ['B2_probe_alarm_share'] = {str(K): float(np.mean(v)) for K, v in probe.items()}
             summ['mean_abs_change_vs_clean'] = float(np.mean(mae))
             out['scenarios'][sname] = summ
-            print(cname, sname, {m: (s['assets'], s['median_days']) for m, s in summ.items() if isinstance(s, dict) and 'assets' in s},
+            if verbose: print(cname, sname, {m: (s['assets'], s['median_days']) for m, s in summ.items() if isinstance(s, dict) and 'assets' in s},
                   'B2', summ['B2_probe_alarm_share'], flush=True)
         res['configs'][cname] = out
-    (HERE / 'monitors_results.json').write_text(json.dumps(res, indent=1)); print('wrote monitors_results.json')
+    (HERE / out_name).write_text(json.dumps(res, indent=1)); print('wrote', out_name); return res
 
 if __name__ == '__main__':
     main()

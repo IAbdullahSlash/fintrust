@@ -1,0 +1,29 @@
+\multicolumn{7}{@{}l}{\emph{E1: Llama-3.1-8B}}\\
+Alarm headline & 0.27 & -- & -- & 6 (19) & n/a & 6 (0)\\
+Calm headline & 0.24 & -- & -- & 6 (19) & n/a & 6 (0)\\
+Persona drift & 0.40 & 3 (67) & 3 (67) & 5 (19) & 99\% & 6 (1.5)\\
+Swap to 1B & 0.43 & 5 (63) & 5 (63) & 3 (18) & 100\% & 6 (3.5)\\
+Inversion & 0.57 & 5 (83) & 5 (83) & 6 (7) & 100\% & 6 (0)\\
+Stuck at 0.95 & 0.52 & 6 (24.5) & 6 (24.5) & 6 (6.5) & 100\% & 6 (0)\\
+Overconfident & 0.22 & 5 (17) & 5 (17) & 6 (9) & 97\% & 6 (0)\\
+Clean (false alarms) & -- & -- & -- & 1 (157) & 0 & 6 (2)\\
+\multicolumn{7}{@{}l}{\emph{E2: Llama-3.1-8B + signals}}\\
+Alarm headline & 0.09 & 6 (17) & 5 (33) & 6 (24) & n/a & 6 (0)\\
+Calm headline & 0.13 & -- & -- & 6 (11.5) & n/a & 6 (0)\\
+Persona drift & 0.22 & 6 (10.5) & 6 (11.5) & 6 (6) & 100\% & 6 (0)\\
+Swap to 1B & 0.23 & -- & 1 (106) & 6 (5) & 100\% & 6 (0)\\
+Inversion & 0.31 & -- & 5 (83) & 6 (6.5) & 100\% & 6 (0)\\
+Stuck at 0.95 & 0.31 & 6 (8.5) & 6 (10.5) & 6 (5) & 100\% & 6 (0)\\
+Overconfident & 0.33 & 6 (6) & 6 (8.5) & 6 (5) & 100\% & 6 (0)\\
+Clean (false alarms) & -- & 3 (86) & -- & -- & 0 & 6 (0)\\
+\multicolumn{7}{@{}l}{\emph{E3: Phi-3-medium}}\\
+Alarm headline & 0.00 & 4 (81) & 4 (81) & -- & n/a & 6 (0)\\
+Calm headline & 0 & \multicolumn{5}{c}{answers unchanged: no monitor can or needs to see it}\\
+Persona drift & 0 & \multicolumn{5}{c}{answers unchanged: no monitor can or needs to see it}\\
+Swap to 1B & 0.50 & 6 (1) & 6 (1) & 6 (0) & 100\% & 6 (0)\\
+Inversion & 0 & \multicolumn{5}{c}{answers unchanged: no monitor can or needs to see it}\\
+Stuck at 0.95 & 0.45 & 6 (2.5) & 6 (1) & 6 (0) & 100\% & 6 (0)\\
+Overconfident & 0 & \multicolumn{5}{c}{answers unchanged: no monitor can or needs to see it}\\
+Clean (false alarms) & -- & -- & -- & -- & 0 & 6 (0)\\
+\midrule
+All faults that change the answers & & 64/102 (12.5) & 69/102 (17) & 92/102 (6) & 72/102 (1) & \\

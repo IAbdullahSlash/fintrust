@@ -1,0 +1,22 @@
+{
+ "L1": {
+  "caught": 64,
+  "of": 102,
+  "median_days": 12.5
+ },
+ "L2": {
+  "caught": 69,
+  "of": 102,
+  "median_days": 17.0
+ },
+ "B1": {
+  "caught": 92,
+  "of": 102,
+  "median_days": 6.0
+ },
+ "B2": {
+  "caught": 72,
+  "of": 102,
+  "median_days": 1.0
+ }
+}
